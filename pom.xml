@@ -14,23 +14,11 @@
 				<configuration>
 					<images>
 						<image>
-							<name>bayraktar/spark</name>
-							<alias>bayraktar/spark</alias>
+							<name>bayraktar/spark-app</name>
+							<alias>bayraktar/spark-app</alias>
 							<!-- Configure build settings -->
 							<build>
-								<dockerFile>${project.basedir}/src/main/resources</dockerFile>
-								<tags>
-									<tag>latest</tag>
-									<tag>${project.version}</tag>
-								</tags>
-							</build>
-						</image>
-						<image>
-							<name>bayraktar/spark</name>
-							<alias>bayraktar/spark</alias>
-							<!-- Configure build settings -->
-							<build>
-								<dockerFile>${project.basedir}/src/main/resources</dockerFile>
+								<dockerFileDir>${project.basedir}/src/main/resources</dockerFileDir>
 								<tags>
 									<tag>latest</tag>
 									<tag>${project.version}</tag>
