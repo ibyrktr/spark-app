@@ -10,7 +10,7 @@ ENV SPARK_MASTER_HOST localhost
 ENV SPARK_MASTER_WEBUI_PORT 8088
 ENV SPARK_MASTER_LOG /spark/logs
 ENV SPARK_MASTER_NAME spark-master
-ENV SPARK_APPLICATION_ARGS /opt/apache-spark/jars/spark-test.jar
+ENV SPARK_APPLICATION_JAR_URL /opt/apache-spark/jars/spark-test.jar
 ENV SPARK_APPLICATION_MAIN_CLASS my.spark.SimpleApp
 ENV SPARK_APPLICATION_ARGS ""
 
@@ -42,23 +42,6 @@ RUN chmod 755 "$SPARK_HOME"/sbin/spark-submit-app.sh
 
 EXPOSE 8088 7077
 CMD ["supervisord", "-n"]
-#CMD ["sh", "/opt/apache-spark/sbin/start-spark-master.sh"]
-
-
-#RUN echo "Submit application ${SPARK_APPLICATION_JAR_LOCATION} with main class ${SPARK_APPLICATION_MAIN_CLASS} to Spark master ${SPARK_MASTER_URL}"
-#RUN echo "Passing arguments ${SPARK_APPLICATION_ARGS}"
-#CMD /spark/bin/spark-submit \
-#        --class ${SPARK_APPLICATION_MAIN_CLASS} \
-#       --master ${SPARK_MASTER_URL} \
-#        ${SPARK_APPLICATION_JAR_LOCATION} ${SPARK_APPLICATION_ARGS}
-
-#RUN mkdir "$FLUME_HOME"/logs
-#ADD conf/flume.conf "$FLUME_CONF_FILE"
-#ADD conf/log4j.properties "$FLUME_CONF_DIR"/log4j.properties
-
-#ADD run/flume-supervisor.conf /etc/supervisor/conf.d/
-#ADD run/start-flume.sh "$FLUME_HOME"/bin/start-flume.sh
-#RUN chmod 755 "$FLUME_HOME"/bin/start-flume.sh
 
 #EXPOSE 1234
 #CMD ["supervisord", "-n"]
